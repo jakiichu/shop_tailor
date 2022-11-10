@@ -17,7 +17,7 @@ const NavBar = () => {
     return (
         <Navbar bg="light" expand="lg">
             <Container>
-                <Navbar.Brand href={SHOP_ROUTE} >Navbar scroll</Navbar.Brand>
+                <Navbar.Brand style={{cursor:"pointer"}} onClick={() => history(SHOP_ROUTE)} >Navbar scroll</Navbar.Brand>
                 <Navbar.Toggle aria-controls="navbarScroll" />
                     <Nav className="ml-auto" style={{ maxHeight: '100px', color: 'white' }} navbarScroll>
                         {user.isAuth ?

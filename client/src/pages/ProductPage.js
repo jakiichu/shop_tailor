@@ -1,14 +1,21 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {Button, Col, Container, Dropdown, DropdownButton, Image, Row} from "react-bootstrap";
+import {useParams} from 'react-router-dom'
+import {viewProduct} from "../components/http/productAPI";
 
 
 const ProductPage = () => {
+    const [product, setProduct] = useState({info: []})
+    const {id} = useParams()
+    useEffect(()=>{
+        viewProduct(id).then(data=> setProduct(data))
+    },[])
     return (
         <Container>
             <Row className="mt-3">
                 <Col md={8}>
-                    <Image width={"100%"} height={"auto"}></Image>
-                    {/*src={product.img}*/}
+                    <Image width={"100%"} height={"auto"} src={process.env.REACT_APP_API_URL + '/' + product.img}></Image>
+
                 </Col>
                 <Col md={4}>
                     <div className="d-flex"><h2>

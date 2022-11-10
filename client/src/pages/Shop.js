@@ -5,13 +5,16 @@ import CategoryBar from "../components/categoryBar";
 import ProductList from "../components/productList";
 import {observer} from "mobx-react";
 import {Context} from "../index";
-import {fetchSize} from "../components/http/productAPI";
+import {fetchProduct, fetchSize, fetchСategory} from "../components/http/productAPI";
+
 
 const Shop = observer(() => {
     const {product} = useContext(Context)
 
     useEffect(() =>{
         fetchSize().then(data=> product.setSize(data))
+        fetchСategory().then(data=> product.setCategory(data))
+        fetchProduct().then(data=> product.setProduct(data.rows))
     }, [])
 
     return (

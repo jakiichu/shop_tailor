@@ -1,5 +1,5 @@
 import {$authHost, $host} from "./index";
-import jwtDecode from "jwt-decode";
+
 
 export const createSize = async (size) => {
     const {data} = await $authHost.post('api/size', size)
@@ -11,8 +11,30 @@ export const fetchSize = async () => {
     return data
 }
 
-export const viewSize = async () => {
-    const {data} = await $authHost.get('api/')
-    localStorage.setItem('token', data.token)
-    return jwtDecode(data.token)
+export const viewSize = async (id) => {
+    const {data} = await $host.get('api/size/' + id)
+    return data
+}
+
+
+export const fetchСategory = async () => {
+    const {data} = await $host.get('api/category')
+    return data
+}
+
+
+export const fetchProduct = async () => {
+    const {data} = await $host.get('api/product')
+    return data
+}
+
+
+export const createProduct = async (size) => {
+    const {data} = await $authHost.post('api/product', size)
+    return data
+}
+
+export const viewProduct = async (id) => {
+    const {data} = await $host.get('api/product/' + id)
+    return data
 }
