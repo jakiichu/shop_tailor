@@ -19,14 +19,14 @@ app.use('/api',router)
 app.use(errorHandler)
 
 app.get('/', (req, res)=>{
-    res.status(200).json({message:'работает ахуеть'})
+    res.status(200).json({message:'API работает'})
 })
 
 const start = async () => {
     try {
         await sequelize.authenticate()
         await sequelize.sync()
-        app.listen(PORT,() => console.log(`server startanul na port ${PORT}`))
+        app.listen(PORT,() => console.log(`server startanul http://localhost:${PORT}`))
 
     }catch (e){
         console.log(e)
