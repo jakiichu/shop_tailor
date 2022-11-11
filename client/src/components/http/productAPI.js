@@ -28,13 +28,29 @@ export const fetchProduct = async () => {
     return data
 }
 
+export const fetchFavorite = async () => {
+    const {data} = await $authHost.get('api/favorite')
+    return data
+}
 
 export const createProduct = async (size) => {
     const {data} = await $authHost.post('api/product', size)
     return data
 }
 
+export const createFavorite = async (favorite) => {
+    const {data} = await $authHost.post('api/favorite', favorite)
+    return data
+}
+
+
 export const viewProduct = async (id) => {
     const {data} = await $host.get('api/product/' + id)
+    return data
+}
+
+
+export const viewFavorite = async (id) => {
+    const {data} = await $host.get('api/favorite/' + id)
     return data
 }

@@ -2,7 +2,7 @@ import React, {useContext, useState} from 'react';
 import {Button, Card, Container, Form, NavLink} from "react-bootstrap";
 import {LOGIN_ROUTE, REGISTRATION_ROUTE, SHOP_ROUTE} from "../utils/consts";
 import {useLocation, useNavigate} from "react-router-dom";
-import {login, registration} from "../components/http/userAPI";
+import {check, login, registration} from "../components/http/userAPI";
 import {observer} from "mobx-react";
 import {Context} from "../index";
 
@@ -27,6 +27,14 @@ const Auth = observer(() => {
             user.setUser(data)
             user.setIsAuth(true)
             history(SHOP_ROUTE)
+            check().then(data => {
+
+                    user.setAdmin(data.role)
+                    user.setId(data.id)
+                    user.setUser(true)
+                    user.setIsAuth(true)
+                }
+            )
         }catch (e){
             alert(e.response.data.message)
         }
@@ -55,9 +63,9 @@ const Auth = observer(() => {
                     />
                     <div className="d-flex justify-content-between mt-3 pl-3 pr-3">
                         {isLogin ?
-                            <div>Нет аккаунта?<NavLink href={REGISTRATION_ROUTE}>Зарегистрируйся!</NavLink></div>
+                            <div>Нет аккаунта?<NavLink onClick={() => history(REGISTRATION_ROUTE)}>Зарегистрируйся!</NavLink></div>
                             :
-                            <div>Есть аккаунт?<NavLink href={LOGIN_ROUTE}>Войдите!</NavLink></div>
+                            <div>Есть аккаунт?<NavLink onClick={() => history(LOGIN_ROUTE)}>Войдите!</NavLink></div>
                         }
                         <Button className="mt-3 align-self-end" variant="outline-success"
                                 onClick={click}>{isLogin ? "Ввойти" : "Регистрация"}</Button>

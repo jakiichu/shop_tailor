@@ -13,6 +13,10 @@ const App = observer(() => {
 
     useEffect(() =>{
             check().then(data=>{
+                user.setAdmin(data.role)
+                user.setId(data.id)
+                user.setName(data.email)
+
                 user.setUser(true)
                 user.setIsAuth(true)
             }).finally(()=> setLoading(false))

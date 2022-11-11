@@ -1,10 +1,11 @@
 import React, {useContext} from 'react';
 import {Context} from "../index";
 import {Button, Container, Nav, Navbar} from "react-bootstrap";
-import {ADMIN_ROUTE, LOGIN_ROUTE, REGISTRATION_ROUTE, SHOP_ROUTE} from "../utils/consts";
+import {ADMIN_ROUTE, LOGIN_ROUTE, PROFILE_ROUTE, REGISTRATION_ROUTE, SHOP_ROUTE} from "../utils/consts";
 import {useNavigate} from 'react-router-dom'
+import {observer} from "mobx-react";
 
-const NavBar = () => {
+const NavBar = observer(() => {
     const history = useNavigate()
     const {user} = useContext(Context)
 
@@ -13,7 +14,7 @@ const NavBar = () => {
         user.setIsAuth(false)
         history(SHOP_ROUTE)
     }
-    console.log(user)
+
     return (
         <Navbar bg="light" expand="lg">
             <Container>
@@ -21,7 +22,7 @@ const NavBar = () => {
                 <Navbar.Toggle aria-controls="navbarScroll" />
                     <Nav className="ml-auto" style={{ maxHeight: '100px', color: 'white' }} navbarScroll>
                         {user.isAuth ?
-                            <><Button className="me-2" onClick={() => history(ADMIN_ROUTE)}>Админ панель</Button>
+                            <>{user.isAdmin === "ADMIN" ? <Button className="me-2" onClick={() => history(ADMIN_ROUTE)}>Админ панель</Button> : <Button className="me-2" onClick={() => history(PROFILE_ROUTE)}>Личный Кабинет</Button> }
                                 <Button onClick={() => logOut()}>Выйти</Button></>
                             :
                             <><Button onClick={() => history(REGISTRATION_ROUTE)} className="me-2">регистрация</Button>
@@ -33,6 +34,6 @@ const NavBar = () => {
             </Container>
         </Navbar>
     );
-};
+});
 
 export default NavBar;

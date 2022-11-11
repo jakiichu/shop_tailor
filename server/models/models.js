@@ -44,6 +44,9 @@ Cart.belongsTo(User)
 User.hasMany(Favorite)
 Favorite.belongsTo(User)
 
+Product.hasMany(Favorite)
+Favorite.belongsTo(Product)
+
 Cart.hasMany(Cart_product)
 Cart_product.belongsTo(Cart)
 

@@ -26,11 +26,11 @@ const CreateProduct = observer((props) => {
         formData.append('description', description)
         formData.append('price', `${price}`)
         formData.append('img', file)
-        formData.append('size',product.selectedSize.id)
-        formData.append('category', product.selectedCategory.id)
+        formData.append('sizeId',product.selectedSize.id)
+        formData.append('categoryId', product.selectedCategory.id)
         createProduct(formData).then(props.setShow(false))
     }
-
+    console.log(product.selectedSize.id)
     return (
         <Modal
             show={props.show}

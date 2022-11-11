@@ -14,9 +14,6 @@ class SizeController{
     async get(req, res){
 
     }
-    async delete(req, res){
-
-    }
 }
 
 module.exports = new SizeController()
