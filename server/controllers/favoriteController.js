@@ -11,8 +11,14 @@ class FavoriteController{
         return res.json(favorite)
     }
     async get(req, res){
+        const {id, productId} = req.params
+        const favorite = await Favorite.findAll({where:
+                {userId:id,productId:productId}
+        })
+        return res.json(favorite)
+    }
+    async getUserFavorites(req, res){
         const {id} = req.params
-        console.log(id)
         const favorite = await Favorite.findAll({where:
                 {userId:id}
         })

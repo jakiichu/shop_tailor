@@ -6,13 +6,12 @@ export default class UserStore {
         this._isAdmin = "USER"
         this._isId = ''
         this._isName = ''
-        this._isFavorite = []
+        this._isFavorite = ''
         this._user = {}
         makeAutoObservable(this)
     }
     setIsAuth(bool){
         this._isAuth = bool
-        console.log(this._isAuth)
     }
     setUser(user){
         this._user = user
@@ -26,6 +25,10 @@ export default class UserStore {
     setName(name){
         this._isName = name
     }
+    setFavorite(name){
+        this._isFavorite = name
+    }
+
     get isAuth(){
         return this._isAuth
     }
@@ -41,5 +44,7 @@ export default class UserStore {
     get user(){
         return this._user
     }
-
+    get isFavorite(){
+        return this._isFavorite
+    }
 }
