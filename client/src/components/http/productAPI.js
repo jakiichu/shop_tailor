@@ -50,7 +50,14 @@ export const viewProduct = async (id) => {
 }
 
 
-export const viewFavorite = async (id) => {
+export const viewFavorite = async (id, productId) => {
+    const {data} = await $host.get('api/favorite/' + id + '/' + + productId)
+    return data
+}
+
+export const userFavorite = async (id) => {
     const {data} = await $host.get('api/favorite/' + id)
     return data
 }
+
+
