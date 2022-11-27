@@ -6,7 +6,7 @@ const UserCard = () => {
     return (
         <Row className='mt-3'>
             <Col sm={2}>
-                <Image src={avatar} width={150} height={150}></Image>
+                <Image src={avatar} width={150} height={150}/>
             </Col>
             <Col sm={10}>
                 <div>dimasik murakami</div>
