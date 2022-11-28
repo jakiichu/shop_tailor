@@ -1,6 +1,6 @@
 import React from 'react';
 import {Col, Image, Row} from "react-bootstrap";
-import avatar from "../asd.jpg";
+import avatar from "../../asd.jpg";
 
 const Post = (props) => {
     return (
