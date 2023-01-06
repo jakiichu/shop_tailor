@@ -7,7 +7,7 @@ import {Context} from "./index";
 import {check} from "./components/http/userAPI";
 import {Spinner} from "react-bootstrap";
 
-const App = observer(() => {
+const Index = observer(() => {
     const {user} = useContext(Context)
     const [loading, setLoading] = useState(true)
 
