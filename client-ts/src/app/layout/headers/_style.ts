@@ -1,9 +1,7 @@
 import {Box, Button, styled, TextField, Typography} from "@mui/material";
 import {Search} from "@mui/icons-material";
 import DehazeIcon from "@mui/icons-material/Dehaze";
-
 const LIST_COMPONENTS = {
-
     background: styled(Box)`
       background-color: white;
       color: black;

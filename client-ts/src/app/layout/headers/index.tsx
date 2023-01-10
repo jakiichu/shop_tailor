@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Toolbar from '@mui/material/Toolbar';
-import { Container} from "@mui/material";
+import {Button, Container} from "@mui/material";
 import {LIST_COMPONENTS as header} from './_style'
 import logo from '../../../assets/asd.png'
 import {FC} from "react";
@@ -14,7 +14,6 @@ const Headers:FC<IHeaders> = (props:IHeaders) => {
     return (
         <header.background>
             <Container>
-
                     <Toolbar>
 
                         <header.logo alt={'asd'} src={logo}/>
