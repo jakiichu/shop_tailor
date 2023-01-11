@@ -9,6 +9,7 @@ const LIST_COMPONENTS = {
     logo: styled("img")`
       width: 200px;
       height: auto;
+      cursor: pointer;
     `,
     Category: styled(Button)`
       color: #FFFFFF;

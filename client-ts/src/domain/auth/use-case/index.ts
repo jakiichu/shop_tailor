@@ -5,7 +5,7 @@ import {HttpAppService} from "@data/common/services/http";
 const registrationUseCase = async (port: IRegistrationPort) => {
 
     let {token} = await registration(port)
-
+    console.log(token)
     HttpAppService.setHeader('Authorization', `Bearer ${token}`)
 
     localStorage.setItem('token', token)

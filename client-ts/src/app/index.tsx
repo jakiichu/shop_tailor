@@ -5,17 +5,11 @@ import AppRouter from "./AppRouter";
 import registrationUseCase from "../domain/auth/use-case";
 
 const Index: FC = () => {
-    const [someone, setSomeone] = useState('human')
-    function setterSomeone() {
-        {
-            console.log(localStorage.getItem('token'))
-            someone === 'human' ? setSomeone('animal') : setSomeone('human')
-        }
-    }
-    registrationUseCase({email:'dftghsdfgyjnrfjyhtrf)))',password:'asdasdasd'})
+    console.log(localStorage.getItem('token'))
+
     return (
         <Box style={{margin: 0}}>
-            <Headers setterSomeone={setterSomeone}/>
+            <Headers />
             <AppRouter/>
         </Box>
     );
