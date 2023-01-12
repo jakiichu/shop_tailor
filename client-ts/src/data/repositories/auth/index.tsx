@@ -1,6 +1,6 @@
-import {IRegistrationPort} from "@domain/auth/interfaces";
+import {IRegistrationPort} from "@domain/auth/interfaces/registraion";
 import {HttpAppService} from "@data/common/services/http";
-import {IRegistrationDto} from "@domain/auth/dto";
+import {IRegistrationDto} from "@domain/auth/dto/registraion";
 
 export const registration = async (port: IRegistrationPort): Promise<IRegistrationDto> => {
     return await HttpAppService.post('/user/registration', { body: port })

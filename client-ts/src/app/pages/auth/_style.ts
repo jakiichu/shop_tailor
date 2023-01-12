@@ -1,11 +1,15 @@
-import {Container, styled} from "@mui/material";
+import {Container, styled, TextField} from "@mui/material";
 
 const LIST_COMPONENTS = {
     containerAuth: styled(Container)`
-      padding: 100px;
-      
-    `,
+ 
 
+    `,
+    textField:styled(TextField)`
+      display: block;
+      margin-top: 30px;
+      
+    `
 }
 
 export {LIST_COMPONENTS}
