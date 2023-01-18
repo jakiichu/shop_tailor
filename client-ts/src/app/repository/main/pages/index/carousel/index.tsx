@@ -1,6 +1,6 @@
 import React from 'react';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import slider from '../../../../assets/slider.png'
+import slider from '@assets/slider.png'
 const CarouselBox = (): JSX.Element => {
     return (
         <>
