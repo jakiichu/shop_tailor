@@ -1,9 +1,10 @@
 import React, {Dispatch, FC, SetStateAction, useState} from 'react';
 import {Button, Link} from "@mui/material";
 import {LIST_COMPONENTS as card} from './_style'
-import UseRegistrationUseCase from "@domain/auth/use-case/registraion";
+
 import {useLocation, useNavigate} from "react-router-dom";
 import LoginUseCase from "@domain/auth/use-case/login";
+import {registrationRequest} from "@app/repository/main/pages/auth/request";
 
 interface IAuthProps {
     auth: boolean;
@@ -38,7 +39,7 @@ const Login: FC<IAuthProps> = (props) => {
         if (isLogin) {
             console.log('регистрация))')
             if (passwordRepeat !== '' || password === passwordRepeat) {
-                UseRegistrationUseCase({email: login, password: password})
+                registrationRequest({email: login, password: password})
                 setTimeout(rederectToHome, 1000)
             }
         } else {

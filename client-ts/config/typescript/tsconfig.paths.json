@@ -5,7 +5,7 @@
       "@configs/*": ["src/configs/*"],
       "@app/*": ["src/app/*"],
       "@data/*": ["src/data/*"],
-      "@assets/*": ["src/assets/*"],
+      "@assets/*": ["src/app/assets/*"],
       "@domain/*": ["src/domain/*"]
     }
   }

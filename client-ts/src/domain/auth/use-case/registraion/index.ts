@@ -1,26 +1,12 @@
-import {registration} from "@data/repositories/auth";
+import {BaseAuthUseCase} from "@domain/auth/common/use-case/base";
+import {IRegistrationUseCase} from "@domain/auth/interfaces/use-case";
 import {IRegistrationPort} from "@domain/auth/interfaces/registraion";
-import {HttpAppService} from "@data/common/services/http";
-import {useEffect} from "react";
-import {useNavigate} from "react-router-dom";
+import {IRegistrationDto} from "@domain/auth/dto/registraion";
 
+class RegistrationUseCase extends BaseAuthUseCase implements IRegistrationUseCase {
+    public async execute(port:IRegistrationPort): Promise<IRegistrationDto> {
+        return this._repository.registration(port)
+    }
+}
 
-const useRegistrationUseCase = async (port:IRegistrationPort) => {
-
-    let {token, message} = await registration(port)
-
-    const navigate = useNavigate()
-    console.log(message)
-    HttpAppService.setHeader('Authorization', `Bearer ${token}`)
-    localStorage.setItem('token', token);
-
-    useEffect(()=>{
-        if (token){
-            navigate('/')
-        }
-
-    },[token])
-
-};
-
-export default useRegistrationUseCase;
+export {RegistrationUseCase}

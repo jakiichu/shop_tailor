@@ -1,6 +1,6 @@
 import React, {useMemo} from 'react';
 import {LIST_COMPONENTS as menu} from './_style'
-import logo from '@assets/asd.png'
+import logo from '@app/assets/asd.png'
 import {Outlet, useNavigate} from "react-router-dom";
 import {Container, Grid} from "@mui/material";
 import ArticleIcon from '@mui/icons-material/Article';

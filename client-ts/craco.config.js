@@ -7,7 +7,7 @@ module.exports = {
             '@app': path.resolve(__dirname, 'src/app/'),
             '@data': path.resolve(__dirname, 'src/data/'),
             '@domain': path.resolve(__dirname, 'src/domain/'),
-            '@assets': path.resolve(__dirname, 'src/assets/'),
+            '@assets': path.resolve(__dirname, 'src/app/assets/'),
         }
     }
 }

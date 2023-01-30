@@ -2,12 +2,13 @@ import * as React from 'react';
 import Toolbar from '@mui/material/Toolbar';
 import {Container, IconButton, MenuItem} from "@mui/material";
 import {LIST_COMPONENTS as header} from './_style'
-import logo from '@assets/asd.png'
+import logo from '@app/assets/asd.png'
 import Menu from '@mui/material/Menu';
 
 import {useNavigate, Outlet} from "react-router-dom";
 import {Favorite, Person, ShoppingCart} from "@mui/icons-material";
 import {ChangeEvent, useState, MouseEvent, FC, Dispatch, SetStateAction} from "react";
+import Footer from "@app/repository/main/layout/footer";
 
 interface IHeadersProps {
     auth: boolean;
@@ -38,7 +39,8 @@ const Headers: FC<IHeadersProps> = (props) => {
     }
 
     return (
-        <Container>
+
+        <>
             <header.background>
                 <Container>
                     <Toolbar>
@@ -127,7 +129,7 @@ const Headers: FC<IHeadersProps> = (props) => {
                 </Container>
                 <Outlet/>
             </header.background>
-        </Container>
+        </>
     );
 };
 
